@@ -1,0 +1,46 @@
+{
+  "name": "Presence Tracker",
+  "version": "0.1.0",
+  "slug": "presence-tracker",
+  "description": "Track smartphone connected to network through the Freebox",
+  "uart": true,
+  "url": "https://github.com/juli3nk/hass-addons/tree/main/presence-tracker",
+  "startup": "application",
+  "services": [
+    "mqtt:need"
+  ],
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf",
+    "armv7"
+  ],
+  "boot": "auto",
+  "init": false,
+  "ingress": false,
+  "timeout": 30,
+  "map": [
+    "share:rw",
+    "config:rw"
+  ],
+  "schema": {
+    "CONFIG_LOCATION": "str",
+    "debug": "bool",
+    "state_path": "str",
+    "mqtt": {
+      "autodiscover": "bool",
+      "host": "str?",
+      "port": "port?",
+      "username": "str?",
+      "password": "str?"
+    }
+  },
+  "options": {
+    "CONFIG_LOCATION": "/etc/presence-tracker/config.hcl",
+    "debug": false,
+    "state_path": "/data/presence-tracker",
+    "mqtt": {
+      "autodiscover": true
+    }
+  }
+}
