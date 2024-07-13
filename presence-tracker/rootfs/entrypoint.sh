@@ -15,7 +15,7 @@ mqtt_password=""
 
 mkdir -p "$state_path"
 
-if bashio::config.true 'mqtt.enabled'); then
+if bashio::config.true 'mqtt.enabled'; then
   if bashio::config.true 'mqtt.autodiscover'; then
     bashio::log.info "mqtt.autodiscover is defined in options, attempting autodiscovery..."
     if ! bashio::services.available "mqtt"; then
